@@ -17,22 +17,19 @@ cask "librium" do
 
   app "Librium.app"
 
+  uninstall quit: "local.librium.desktop"
+
   zap trash: [
     "~/Library/Application Support/Librium",
     "~/Library/Application Support/librium-desktop",
-    "~/Library/Logs/Librium",
     "~/Library/Preferences/local.librium.desktop.plist",
     "~/Library/Saved Application State/local.librium.desktop.savedState",
   ]
 
   caveats <<~EOS
     Librium is ad-hoc signed, not signed with an Apple Developer ID, so
-    Gatekeeper quarantines it and macOS reports the app as damaged on first
-    launch. Either install it without the quarantine flag:
-
-      brew install --cask --no-quarantine daloshka/tap/librium
-
-    or clear the flag after a normal install:
+    macOS reports the app as damaged on first launch. Clear the quarantine
+    flag once after every install or upgrade:
 
       xattr -dr com.apple.quarantine /Applications/Librium.app
   EOS

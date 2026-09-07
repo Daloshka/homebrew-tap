@@ -6,17 +6,14 @@ HTTP, HTTPS and WebSocket debugging proxy for macOS and Windows.
 ## Install
 
 ```sh
-brew install --cask --no-quarantine daloshka/tap/librium
-```
-
-`--no-quarantine` is needed because the app is ad-hoc signed rather than signed with an
-Apple Developer ID: without it macOS reports Librium as damaged on first launch. If you
-already installed it the normal way, clear the flag instead:
-
-```sh
 brew install --cask daloshka/tap/librium
 xattr -dr com.apple.quarantine /Applications/Librium.app
 ```
+
+The second command is needed once after every install or upgrade: the app is ad-hoc
+signed rather than signed with an Apple Developer ID, and Homebrew keeps the quarantine
+attribute on downloaded apps, so without it macOS reports Librium as damaged on first
+launch.
 
 ## Update and uninstall
 
@@ -29,8 +26,9 @@ brew uninstall --zap --cask librium    # removes them too
 ## Requirements
 
 Apple silicon (arm64) and macOS 13 Ventura or newer — the same minimum as the Electron
-runtime Librium ships. There is no Intel build; on an Intel Mac use the
-[release archive](https://github.com/Daloshka/Librium/releases) built from source.
+runtime Librium ships. There is no Intel build yet; on an Intel Mac build Librium
+[from source](https://github.com/Daloshka/Librium#from-source) — `npm run dist` produces an
+x64 dmg.
 
 ## Maintaining
 
