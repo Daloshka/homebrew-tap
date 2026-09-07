@@ -13,13 +13,13 @@ cask "librium" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Librium.app"
 
   zap trash: [
-    "~/Library/Application Support/librium-desktop",
     "~/Library/Application Support/Librium",
+    "~/Library/Application Support/librium-desktop",
     "~/Library/Logs/Librium",
     "~/Library/Preferences/local.librium.desktop.plist",
     "~/Library/Saved Application State/local.librium.desktop.savedState",
