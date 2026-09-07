@@ -1,6 +1,6 @@
 cask "librium" do
-  version "0.5.4"
-  sha256 "37aaf2528ec3f1f466bc797df3e832eb2449fc476d47a09e25b82b93500a5699"
+  version "0.6.0"
+  sha256 "a0e4c219620194e393689c81b9487ebb9a28395962814a0cdeb10753d1b9459c"
 
   url "https://github.com/Daloshka/Librium/releases/download/v#{version}/Librium-#{version}-arm64.dmg"
   name "Librium"
